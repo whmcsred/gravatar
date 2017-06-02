@@ -24,13 +24,16 @@ function gravatar($vars){
 
 	//Formação da URL
 	$urlgravatar = 'https://www.gravatar.com/avatar/'.$hash.'?s=48&d=mm';
+	$urlgravatar_email = 'https://www.gravatar.com/avatar/'.$hash.'?s=96&d=mm';
 
 	//Cria a variavel usavel
 	$variavel = array();
 	$variavel['gravatar'] = $urlgravatar;
+	$variavel['gravatar_email'] = $urlgravatar_email;
 
 	//Retorno da Função
 	return $variavel;
 }
 add_hook("ClientAreaPage", 1, "gravatar");
+add_hook("EmailPreSend",1,"gravatar");
 ?>
